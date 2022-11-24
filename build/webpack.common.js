@@ -24,15 +24,6 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        exclude: /node_modules/,
-        use: [
-          getLoader(),
-          { loader: 'css-loader', options: { modules: true } },
-          'postcss-loader',
-        ],
-      },
-      {
-        test: /\.css$/,
         use: [getLoader(), 'css-loader', 'postcss-loader'],
       },
       {
