@@ -1,5 +1,10 @@
 import Vue from 'vue/dist/vue.esm.js';
 import Vuex from 'vuex';
+import VuexPersistence from 'vuex-persist';
+
+const vuexLocal = new VuexPersistence({
+  storage: window.localStorage,
+});
 
 Vue.use(Vuex);
 
@@ -13,6 +18,7 @@ files.keys().forEach((key) => {
 
 const store = new Vuex.Store({
   modules,
+  plugins: [vuexLocal.plugin],
 });
 
 export default store;
