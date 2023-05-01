@@ -1,24 +1,21 @@
 <template>
   <el-menu
-    class="hl-menu"
+    class="my-menu"
     @select="selectMenu"
     :default-active="$route.path"
-    background-color="#ccc"
+    background-color="#333e42"
   >
     <el-menu-item index="/">
       <i class="el-icon-s-home"></i>
       <span slot="title">首页</span>
     </el-menu-item>
-    <el-menu-item index="/table">
-      <i class="el-icon-table-lamp"></i>
-      <span slot="title">虚拟列表</span>
-    </el-menu-item>
   </el-menu>
 </template>
 
 <script>
-import { debounce } from 'lodash';
+import { debounce } from "lodash";
 export default {
+  name: "MyAside",
   methods: {
     selectMenu: debounce(function (key) {
       if (key === this.$route.path) return;
@@ -29,7 +26,7 @@ export default {
 </script>
 
 <style lang="less" scoped>
-.hl-menu {
+.my-menu {
   height: 100%;
 }
 </style>

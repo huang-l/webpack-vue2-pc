@@ -1,6 +1,6 @@
-import Vue from 'vue/dist/vue.esm.js';
-import Vuex from 'vuex';
-import VuexPersistence from 'vuex-persist';
+import Vue from "vue/dist/vue.esm.js";
+import Vuex from "vuex";
+import VuexPersistence from "vuex-persist";
 
 const vuexLocal = new VuexPersistence({
   storage: window.localStorage,
@@ -8,7 +8,7 @@ const vuexLocal = new VuexPersistence({
 
 Vue.use(Vuex);
 
-const files = require.context('./modules', true, /index\.js/);
+const files = require.context("./modules", true, /index\.js/);
 
 const modules = {};
 

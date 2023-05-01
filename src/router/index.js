@@ -1,25 +1,35 @@
-import Vue from 'vue/dist/vue.esm.js';
-import VueRouter from 'vue-router';
-import Layout from '@/layout/Layout';
-import Home from '@/pages/home/Home.vue';
-import Table from '@/pages/table/Table.vue';
+import Vue from "vue/dist/vue.esm.js";
+import VueRouter from "vue-router";
+import cookieService from "@/utils/cookieService";
+import Login from "@/pages/login/Login.vue";
+import MyLayout from "@/layout/MyLayout";
+import Home from "@/pages/home/Home.vue";
 
 Vue.use(VueRouter);
 
 const routes = [
   {
-    path: '/',
-    component: Layout,
-    children: [
-      { path: '', component: Home },
-      { path: 'table', component: Table },
-    ],
+    path: "/",
+    component: MyLayout,
+    children: [{ path: "", component: Home }],
+  },
+  {
+    path: "/login",
+    component: Login,
   },
 ];
 
 const router = new VueRouter({
-  mode: 'history',
+  mode: "history",
   routes,
+});
+
+router.beforeEach((to, from, next) => {
+  const token = cookieService.getCookie("token");
+  if (!token && to.path !== "/login") {
+    next("/login");
+  }
+  next();
 });
 
 export default router;

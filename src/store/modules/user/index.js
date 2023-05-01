@@ -1,12 +1,12 @@
 export default {
-  home: {
+  user: {
     namespaced: true,
     state: () => ({
-      count: 0,
+      userInfo: {},
     }),
     mutations: {
-      addCount(state, payload) {
-        state.count += payload;
+      changeUserInfo(state, payload) {
+        state.userInfo = payload;
       },
     },
   },

@@ -39,6 +39,7 @@
     "webpack-merge": "^5.8.0"
   },
   "dependencies": {
+    "echarts": "^5.4.2",
     "element-ui": "^2.15.12",
     "lodash": "^4.17.21",
     "vue": "2.6.14",
