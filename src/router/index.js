@@ -1,26 +1,21 @@
 import Vue from "vue/dist/vue.esm.js";
 import VueRouter from "vue-router";
 import cookieService from "@/utils/cookieService";
-import Login from "@/pages/login/Login.vue";
-import MyLayout from "@/layout/MyLayout";
-import Home from "@/pages/home/Home.vue";
-import Drag from "@/pages/drag/Drag.vue";
-import NotFound from "@/pages/404/NotFound";
 
 Vue.use(VueRouter);
 
 const routes = [
   {
     path: "/",
-    component: MyLayout,
+    component: () => import("@/layout/MyLayout"),
     children: [
-      { path: "", component: Home },
-      { path: "drag", component: Drag },
+      { path: "", component: () => import("@/pages/home/Home.vue") },
+      { path: "drag", component: () => import("@/pages/drag/Drag.vue") },
     ],
   },
-  { path: "/login", component: Login },
+  { path: "/login", component: () => import("@/pages/login/Login.vue") },
   // 会匹配所有路径 跳转404页面
-  { path: "*", component: NotFound },
+  { path: "*", component: () => import("@/pages/404/NotFound") },
 ];
 
 const router = new VueRouter({
