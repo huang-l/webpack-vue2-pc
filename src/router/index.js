@@ -5,6 +5,7 @@ import Login from "@/pages/login/Login.vue";
 import MyLayout from "@/layout/MyLayout";
 import Home from "@/pages/home/Home.vue";
 import Drag from "@/pages/drag/Drag.vue";
+import NotFound from "@/pages/404/NotFound";
 
 Vue.use(VueRouter);
 
@@ -17,10 +18,9 @@ const routes = [
       { path: "drag", component: Drag },
     ],
   },
-  {
-    path: "/login",
-    component: Login,
-  },
+  { path: "/login", component: Login },
+  // 会匹配所有路径 跳转404页面
+  { path: "*", component: NotFound },
 ];
 
 const router = new VueRouter({
