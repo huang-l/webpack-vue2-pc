@@ -4,6 +4,7 @@ import cookieService from "@/utils/cookieService";
 import Login from "@/pages/login/Login.vue";
 import MyLayout from "@/layout/MyLayout";
 import Home from "@/pages/home/Home.vue";
+import Drag from "@/pages/drag/Drag.vue";
 
 Vue.use(VueRouter);
 
@@ -11,7 +12,10 @@ const routes = [
   {
     path: "/",
     component: MyLayout,
-    children: [{ path: "", component: Home }],
+    children: [
+      { path: "", component: Home },
+      { path: "drag", component: Drag },
+    ],
   },
   {
     path: "/login",

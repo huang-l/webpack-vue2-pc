@@ -14,8 +14,7 @@ body,
 .app {
   background-color: #333e42;
 }
-.el-menu-item,
-.el-form-item__label {
+.el-menu-item {
   color: #fff;
 }
 .el-menu {

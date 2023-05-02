@@ -11,6 +11,14 @@ const mixin = {
       type: String,
       default: "500px",
     },
+    onOk: {
+      type: Function,
+      default: () => () => {},
+    },
+    onCancel: {
+      type: Function,
+      default: () => () => {},
+    },
   },
   watch: {
     visible(value) {

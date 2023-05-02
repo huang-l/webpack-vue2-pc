@@ -75,6 +75,9 @@ export default {
   padding: 20px;
   box-shadow: 1px 1px 10px #000;
   text-align: center;
+  /deep/.el-form-item__label {
+    color: #fff;
+  }
   .title {
     color: #fff;
     line-height: 80px;

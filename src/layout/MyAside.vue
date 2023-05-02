@@ -9,6 +9,10 @@
       <i class="el-icon-s-home"></i>
       <span slot="title">首页</span>
     </el-menu-item>
+    <el-menu-item index="/drag">
+      <i class="el-icon-position"></i>
+      <span slot="title">拖拽</span>
+    </el-menu-item>
   </el-menu>
 </template>
 
