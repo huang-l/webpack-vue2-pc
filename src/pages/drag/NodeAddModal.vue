@@ -27,6 +27,7 @@
 <script>
 export default {
   name: "NodeAddModal",
+  props: ["title", "width", "onOk"],
   data() {
     var validateName = (_, value, callback) => {
       const reg = /^[a-zA-Z0-9@._]{3,10}$/;

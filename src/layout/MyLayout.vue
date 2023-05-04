@@ -25,7 +25,7 @@
 <script>
 import MyAside from "./MyAside.vue";
 import cookieService from "@/utils/cookieService";
-import { mapState } from "vuex";
+import { mapState, mapMutations } from "vuex";
 export default {
   name: "MyLayout",
   components: { MyAside },
@@ -39,6 +39,7 @@ export default {
     }
   },
   methods: {
+    ...mapMutations("user", ["changeUserInfo"]),
     handleCommand(key) {
       if (key === "exit") {
         this.$confirm("确定退出登录吗?", "退出登录", {
@@ -49,6 +50,7 @@ export default {
           .then(() => {
             this.$message({ type: "success", message: "退出登录成功!" });
             cookieService.deleteCookie("token");
+            this.changeUserInfo({});
             this.$router.push("/login");
           })
           .catch(() => {
